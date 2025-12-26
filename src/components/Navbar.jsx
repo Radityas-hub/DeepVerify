@@ -80,7 +80,7 @@ const Navbar = () => {
             </Link>
             <a 
               className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-bold rounded-lg transition-colors" 
-              href="https://github.com" 
+              href="https://github.com/Radityas-hub/DeepVerify" 
               target="_blank"
               rel="noopener noreferrer"
             >
