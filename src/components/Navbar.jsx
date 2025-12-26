@@ -1,16 +1,45 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 const Navbar = () => {
   const location = useLocation();
+  const navRef = useRef(null);
+  const logoRef = useRef(null);
+  const linksRef = useRef(null);
   
   const isActive = (path) => location.pathname === path;
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Navbar slide down
+      gsap.fromTo(navRef.current,
+        { y: -100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }
+      );
+      
+      // Logo fade in
+      gsap.fromTo(logoRef.current,
+        { x: -20, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.5, delay: 0.3, ease: 'power2.out' }
+      );
+      
+      // Nav links stagger
+      gsap.fromTo(linksRef.current?.children || [],
+        { y: -10, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, delay: 0.4, ease: 'power2.out' }
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
   
   return (
-    <header className="w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#101322]/80 backdrop-blur-md sticky top-0 z-50">
+    <header ref={navRef} className="w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#101322]/80 backdrop-blur-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo Area */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link ref={logoRef} to="/" className="flex items-center gap-3">
             <img src="/logo.png" alt="DeepVerify Logo" className="w-8 h-8 object-contain" />
             <h2 className="text-slate-900 dark:text-white text-lg font-bold tracking-tight">
                 DeepVerify
@@ -18,7 +47,7 @@ const Navbar = () => {
           </Link>
           
           {/* Nav Links */}
-          <div className="flex items-center gap-6">
+          <div ref={linksRef} className="flex items-center gap-6">
             <Link 
               className={`hidden sm:block text-sm font-medium transition-colors ${
                 isActive('/')

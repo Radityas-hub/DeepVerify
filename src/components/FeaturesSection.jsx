@@ -1,3 +1,9 @@
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const features = [
   {
     icon: "model_training",
@@ -23,12 +29,41 @@ const features = [
 ];
 
 const FeaturesSection = () => {
+  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate cards on scroll
+      cardsRef.current.forEach((card, index) => {
+        gsap.fromTo(card,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            delay: index * 0.15,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative z-10 w-full max-w-5xl mx-auto px-4 pb-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section ref={sectionRef} className="relative z-10 w-full max-w-5xl mx-auto px-4 pb-20 grid grid-cols-1 md:grid-cols-3 gap-6">
       {features.map((feature, index) => (
         <div 
           key={index}
-          className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm p-6 rounded-lg border border-slate-200 dark:border-slate-700/50 flex flex-col gap-3"
+          ref={el => cardsRef.current[index] = el}
+          className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm p-6 rounded-lg border border-slate-200 dark:border-slate-700/50 flex flex-col gap-3 hover:scale-[1.02] hover:shadow-lg transition-all duration-300"
         >
           <div className={`w-10 h-10 rounded-lg ${feature.bgColor} flex items-center justify-center ${feature.iconColor} mb-1`}>
             <span className="material-symbols-outlined">{feature.icon}</span>

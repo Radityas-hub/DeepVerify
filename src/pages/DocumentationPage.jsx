@@ -232,7 +232,7 @@ const DocumentationPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section ref={heroRef} className="relative py-16 sm:py-24 overflow-hidden">
+        <section ref={heroRef} className="relative py-16 sm:py-24">
           <div className="absolute inset-0 bg-hero-glow pointer-events-none"></div>
           
           <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">

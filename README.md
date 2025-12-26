@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![DeepVerify Logo](public/logo.png)
+<!-- ![DeepVerify Logo](public/logo.png) -->
 
 **Detect whether an image is REAL or AI-Generated with confidence**
 
@@ -11,7 +11,7 @@
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![GSAP](https://img.shields.io/badge/GSAP-Animations-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
 
-[Live Demo](#) • [Documentation](#documentation) • [About](#about-the-project)
+[Live Demo](https://deep-verify.vercel.app/) • [Documentation](https://deep-verify.vercel.app/documentation) • [About](https://deep-verify.vercel.app/about)
 
 </div>
 
