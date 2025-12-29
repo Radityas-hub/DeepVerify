@@ -1,8 +1,8 @@
-import { Navbar, HeroSection, UploadSection, FeaturesSection, Footer, ScrollToTop } from '../components';
+import { Navbar, HeroSection, UploadSection, FeaturesSection, Footer } from '../components';
 
 const HomePage = () => {
   return (
-    <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col font-display overflow-x-hidden selection:bg-primary selection:text-white">
+    <div className="bg-white text-slate-800 min-h-screen flex flex-col font-display overflow-x-hidden selection:bg-primary selection:text-white">
       <Navbar />
       
       <main className="flex-grow flex flex-col items-center justify-start relative">
@@ -14,7 +14,6 @@ const HomePage = () => {
       </main>
       
       <Footer />
-      <ScrollToTop />
     </div>
   );
 };

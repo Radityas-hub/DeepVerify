@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Navbar, Footer, ScrollToTop } from '../components';
+import { Navbar, Footer } from '../components';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,28 +13,36 @@ const howItWorksSteps = [
     title: 'Upload Image',
     description: 'Select an image from your device or drag and drop it into the upload area. We accept JPG, PNG, and WEBP formats up to 5MB.',
     icon: 'cloud_upload',
-    color: 'primary'
+    badgeClass: 'bg-blue-600',
+    iconBgClass: 'bg-blue-500/10',
+    iconTextClass: 'text-blue-600'
   },
   {
     step: 2,
     title: 'Image Processing',
     description: 'Your image is preprocessed and normalized to ensure consistent analysis. This includes resizing, color normalization, and format optimization.',
     icon: 'tune',
-    color: 'indigo'
+    badgeClass: 'bg-blue-600',
+    iconBgClass: 'bg-blue-500/10',
+    iconTextClass: 'text-blue-600'
   },
   {
     step: 3,
     title: 'AI Analysis',
     description: 'Our deep learning model analyzes the image for pixel-level artifacts, pattern inconsistencies, and signatures typical of AI-generated content.',
     icon: 'psychology',
-    color: 'purple'
+    badgeClass: 'bg-blue-600',
+    iconBgClass: 'bg-blue-500/10',
+    iconTextClass: 'text-blue-600'
   },
   {
     step: 4,
     title: 'Result Classification',
     description: 'The system outputs a classification (Real Photo or AI Generated) along with a confidence score indicating the certainty of the prediction.',
     icon: 'analytics',
-    color: 'emerald'
+    badgeClass: 'bg-blue-600',
+    iconBgClass: 'bg-blue-500/10',
+    iconTextClass: 'text-blue-600'
   }
 ];
 
@@ -109,12 +117,12 @@ const FAQAccordion = ({ question, answer, isOpen, onClick }) => {
   }, [isOpen]);
 
   return (
-    <div className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+    <div className="border border-blue-100 rounded-lg overflow-hidden">
       <button
         onClick={onClick}
-        className="w-full px-6 py-4 flex items-center justify-between bg-white dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+        className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-blue-50 transition-colors cursor-pointer"
       >
-        <span className="font-medium text-left text-slate-900 dark:text-white">{question}</span>
+        <span className="font-medium text-left text-slate-800">{question}</span>
         <span className={`material-symbols-outlined text-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
           expand_more
         </span>
@@ -124,7 +132,7 @@ const FAQAccordion = ({ question, answer, isOpen, onClick }) => {
         className="overflow-hidden"
         style={{ height: 0, opacity: 0 }}
       >
-        <div className="px-6 py-4 bg-slate-50 dark:bg-slate-900/50 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+        <div className="px-6 py-4 bg-blue-50/50 text-slate-600 text-sm leading-relaxed">
           {answer}
         </div>
       </div>
@@ -227,7 +235,7 @@ const DocumentationPage = () => {
   };
 
   return (
-    <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col font-display overflow-x-hidden selection:bg-primary selection:text-white">
+    <div className="bg-white text-slate-800 min-h-screen flex flex-col font-display overflow-x-hidden selection:bg-primary selection:text-white">
       <Navbar />
 
       <main className="flex-grow">
@@ -241,7 +249,7 @@ const DocumentationPage = () => {
                 Documentation
               </span>
             </h1>
-            <p className="doc-hero-subtitle text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            <p className="doc-hero-subtitle text-lg text-slate-600 max-w-2xl mx-auto">
               Learn how DeepVerify works and how to use it effectively for image verification.
             </p>
           </div>
@@ -251,10 +259,10 @@ const DocumentationPage = () => {
         <section ref={howItWorksRef} className="py-16 sm:py-20">
           <div className="max-w-5xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">
+              <h2 className="text-3xl font-bold mb-4 text-slate-800">
                 How It <span className="text-primary">Works</span>
               </h2>
-              <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+              <p className="text-slate-600 max-w-2xl mx-auto">
                 A step-by-step breakdown of the DeepVerify analysis pipeline.
               </p>
             </div>
@@ -263,21 +271,21 @@ const DocumentationPage = () => {
               {howItWorksSteps.map((step, index) => (
                 <div 
                   key={index}
-                  className="how-step relative bg-white dark:bg-slate-800/50 rounded-xl p-6 border border-slate-200 dark:border-slate-700/50 text-center"
+                  className="how-step relative bg-white rounded-xl p-6 border border-blue-100 text-center shadow-sm"
                 >
                   {/* Step number badge */}
-                  <div className={`absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-${step.color}-500 text-white text-sm font-bold flex items-center justify-center shadow-lg`}>
+                  <div className={`absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full ${step.badgeClass} text-white text-sm font-bold flex items-center justify-center shadow-lg`}>
                     {step.step}
                   </div>
                   
-                  <div className={`w-14 h-14 mx-auto rounded-xl bg-${step.color}-500/10 flex items-center justify-center text-${step.color}-500 mb-4 mt-2`}>
+                  <div className={`w-14 h-14 mx-auto rounded-xl ${step.iconBgClass} flex items-center justify-center ${step.iconTextClass} mb-4 mt-2`}>
                     <span className="material-symbols-outlined text-2xl">{step.icon}</span>
                   </div>
                   
-                  <h3 className="font-bold text-slate-900 dark:text-white mb-2">
+                  <h3 className="font-bold text-slate-800 mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -287,13 +295,13 @@ const DocumentationPage = () => {
         </section>
 
         {/* User Guide Section */}
-        <section ref={userGuideRef} className="py-16 sm:py-20 bg-slate-50/50 dark:bg-slate-900/30">
+        <section ref={userGuideRef} className="py-16 sm:py-20 bg-blue-50/50">
           <div className="max-w-4xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">
+              <h2 className="text-3xl font-bold mb-4 text-slate-800">
                 Using <span className="text-primary">DeepVerify</span>
               </h2>
-              <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+              <p className="text-slate-600 max-w-2xl mx-auto">
                 A quick guide on how to use the platform.
               </p>
             </div>
@@ -302,16 +310,16 @@ const DocumentationPage = () => {
               {userGuideSteps.map((step, index) => (
                 <div 
                   key={index}
-                  className="guide-card flex gap-4 items-start bg-white dark:bg-slate-800/50 rounded-xl p-5 border border-slate-200 dark:border-slate-700/50"
+                  className="guide-card flex gap-4 items-start bg-white rounded-xl p-5 border border-blue-100 shadow-sm"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                     <span className="material-symbols-outlined">{step.icon}</span>
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 dark:text-white mb-1">
+                    <h3 className="font-bold text-slate-800 mb-1">
                       {index + 1}. {step.title}
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -325,10 +333,10 @@ const DocumentationPage = () => {
         <section ref={resultsRef} className="py-16 sm:py-20">
           <div className="max-w-4xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">
+              <h2 className="text-3xl font-bold mb-4 text-slate-800">
                 Understanding <span className="text-primary">Results</span>
               </h2>
-              <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+              <p className="text-slate-600 max-w-2xl mx-auto">
                 DeepVerify provides two possible classifications for uploaded images.
               </p>
             </div>
@@ -386,16 +394,16 @@ const DocumentationPage = () => {
             </div>
             
             {/* Confidence Score Explanation */}
-            <div className="mt-8 bg-slate-100 dark:bg-slate-800/30 rounded-xl p-6 border border-slate-200 dark:border-slate-700/50">
+            <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-100">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                   <span className="material-symbols-outlined">percent</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 dark:text-white mb-1">
+                  <h3 className="font-bold text-slate-800 mb-1">
                     Confidence Score
                   </h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     Each result includes a confidence percentage (e.g., 92%) indicating how certain the model is about its classification. Higher scores mean greater confidence. Scores below 80% may indicate ambiguous cases.
                   </p>
                 </div>
@@ -405,44 +413,44 @@ const DocumentationPage = () => {
         </section>
 
         {/* API Section (Coming Soon) */}
-        <section ref={apiRef} className="py-16 sm:py-20 bg-slate-50/50 dark:bg-slate-900/30">
+        <section ref={apiRef} className="py-16 sm:py-20 bg-blue-50/50">
           <div className="max-w-3xl mx-auto px-4">
             <div className="api-content text-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 text-xs font-bold uppercase tracking-wider mb-6">
                 <span className="material-symbols-outlined text-[16px]">construction</span>
                 Coming Soon
               </div>
               
-              <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">
+              <h2 className="text-3xl font-bold mb-4 text-slate-800">
                 API & Model <span className="text-primary">Integration</span>
               </h2>
               
-              <div className="bg-white dark:bg-slate-800/50 rounded-xl p-8 border border-slate-200 dark:border-slate-700/50 text-left">
-                <p className="text-slate-600 dark:text-slate-400 mb-6">
+              <div className="bg-white rounded-xl p-8 border border-blue-100 text-left shadow-sm">
+                <p className="text-slate-600 mb-6">
                   We're working on providing programmatic access to DeepVerify for developers and researchers.
                 </p>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <span className="material-symbols-outlined text-primary">api</span>
-                    <span className="text-slate-900 dark:text-white font-medium">REST API Access</span>
+                    <span className="text-slate-800 font-medium">REST API Access</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="material-symbols-outlined text-primary">code</span>
-                    <span className="text-slate-900 dark:text-white font-medium">SDK Libraries (Python, JavaScript)</span>
+                    <span className="text-slate-800 font-medium">SDK Libraries (Python, JavaScript)</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="material-symbols-outlined text-primary">science</span>
-                    <span className="text-slate-900 dark:text-white font-medium">Model Research Transparency</span>
+                    <span className="text-slate-800 font-medium">Model Research Transparency</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="material-symbols-outlined text-primary">description</span>
-                    <span className="text-slate-900 dark:text-white font-medium">Detailed API Documentation</span>
+                    <span className="text-slate-800 font-medium">Detailed API Documentation</span>
                   </div>
                 </div>
                 
-                <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
-                  <p className="text-sm text-slate-500 dark:text-slate-400">
+                <div className="mt-6 pt-6 border-t border-blue-100">
+                  <p className="text-sm text-slate-500">
                     Interested in early access? Stay tuned for updates on our GitHub repository.
                   </p>
                 </div>
@@ -455,10 +463,10 @@ const DocumentationPage = () => {
         <section ref={faqRef} className="py-16 sm:py-20">
           <div className="max-w-3xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">
+              <h2 className="text-3xl font-bold mb-4 text-slate-800">
                 Frequently Asked <span className="text-primary">Questions</span>
               </h2>
-              <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+              <p className="text-slate-600 max-w-2xl mx-auto">
                 Common questions about DeepVerify and AI image detection.
               </p>
             </div>
@@ -479,12 +487,12 @@ const DocumentationPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 sm:py-20 bg-gradient-to-br from-primary/5 via-indigo-500/5 to-purple-500/5">
+        <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-white">
           <div className="max-w-3xl mx-auto px-4 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-slate-900 dark:text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-slate-800">
               Ready to Try It Out?
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 mb-8">
+            <p className="text-slate-600 mb-8">
               Upload an image and see DeepVerify in action.
             </p>
             <Link 
@@ -499,7 +507,6 @@ const DocumentationPage = () => {
       </main>
 
       <Footer />
-      <ScrollToTop />
     </div>
   );
 };

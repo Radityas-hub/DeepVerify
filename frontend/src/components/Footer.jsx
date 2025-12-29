@@ -15,24 +15,24 @@ const teamMembers = [
 
 const Footer = () => {
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#101322] mt-auto">
+    <footer className="border-t border-blue-100 bg-gradient-to-b from-white to-blue-50 mt-auto">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <img src="/logo.png" alt="DeepVerify Logo" className="w-6 h-6 object-contain" />
-              <span className="font-bold text-slate-900 dark:text-white">DeepVerify</span>
+              <span className="font-bold text-primary">DeepVerify</span>
             </div>
-            <p className="text-slate-500 dark:text-slate-400 text-sm max-w-sm">
+            <p className="text-slate-600 text-sm max-w-sm">
               An academic research project dedicated to combating misinformation by identifying AI-generated imagery through advanced computer vision techniques.
             </p>
           </div>
           
           {/* Academic Info */}
           <div>
-            <h5 className="text-slate-900 dark:text-white font-bold text-sm mb-4">Academic Info</h5>
-            <ul className="flex flex-col gap-2 text-sm text-slate-500 dark:text-slate-400">
+            <h5 className="text-primary font-bold text-sm mb-4">Academic Info</h5>
+            <ul className="flex flex-col gap-2 text-sm text-slate-600">
               <li>Primakara University</li>
               <li>Class: Artificial Intelligence</li>
               <li>MADE ADI PARAMARTHA PUTRA, S.T., M.T., PH.D.</li>
@@ -42,11 +42,11 @@ const Footer = () => {
           
           {/* The Team */}
           <div>
-            <h5 className="text-slate-900 dark:text-white font-bold text-sm mb-4">The Team</h5>
-            <ul className="flex flex-col gap-2 text-sm text-slate-500 dark:text-slate-400">
+            <h5 className="text-primary font-bold text-sm mb-4">The Team</h5>
+            <ul className="flex flex-col gap-2 text-sm text-slate-600">
               {teamMembers.map((member, index) => (
                 <li key={index} className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                  <div className="w-5 h-5 rounded-full bg-blue-100 overflow-hidden">
                     <div 
                       className="w-full h-full bg-cover bg-center" 
                       style={{ backgroundImage: `url("${member.avatar}")` }}
@@ -61,15 +61,15 @@ const Footer = () => {
         </div>
         
         {/* Bottom Bar */}
-        <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-400 dark:text-slate-500 text-sm">
-            © 2023 Real vs AI Detector Project. All rights reserved.
+        <div className="border-t border-blue-100 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-slate-500 text-sm">
+            © 2025 DeepVerify Project. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a className="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 text-sm" href="#">
+            <a className="text-slate-500 hover:text-primary text-sm transition-colors" href="#">
               Privacy Policy
             </a>
-            <a className="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 text-sm" href="#">
+            <a className="text-slate-500 hover:text-primary text-sm transition-colors" href="#">
               Terms of Service
             </a>
           </div>

@@ -2,18 +2,35 @@
 
 <div align="center">
 
-<!-- ![DeepVerify Logo](public/logo.png) -->
-
 **Detect whether an image is REAL or AI-Generated with confidence**
 
 [![React](https://img.shields.io/badge/React-19.x-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![GSAP](https://img.shields.io/badge/GSAP-Animations-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
+[![Flask](https://img.shields.io/badge/Flask-3.x-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://tensorflow.org/)
 
 [Live Demo](https://deep-verify.vercel.app/) • [Documentation](https://deep-verify.vercel.app/documentation) • [About](https://deep-verify.vercel.app/about)
 
 </div>
+
+---
+
+## 📁 Project Structure
+
+```
+DeepVerify/
+├── backend/          # Flask API Server + AI Model
+│   ├── app.py
+│   ├── requirements.txt
+│   └── README.md
+├── frontend/         # React + Vite Application
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── ...
+└── README.md
+```
 
 ---
 
@@ -37,6 +54,7 @@
 ### Prerequisites
 
 - **Node.js** >= 18.x
+- **Python** >= 3.9
 - **npm** >= 9.x or **yarn** >= 1.22.x
 
 ### Installation
@@ -47,7 +65,22 @@
    cd DeepVerify
    ```
 
-2. **Install dependencies**
+2. **Setup Frontend**
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+3. **Setup Backend**
+   ```bash
+   cd backend
+   python -m venv venv
+   venv\Scripts\activate  # Windows
+   # source venv/bin/activate  # Mac/Linux
+   pip install -r requirements.txt
+   python app.py
+   ```
    ```bash
    npm install
    ```

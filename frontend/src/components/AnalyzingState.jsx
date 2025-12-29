@@ -93,18 +93,18 @@ const AnalyzingState = ({ imagePreview }) => {
       <div className="text-center">
         <h3 
           ref={textRef}
-          className="text-xl font-bold text-slate-900 dark:text-white mb-2"
+          className="text-xl font-bold text-slate-800 mb-2"
         >
           Analyzing image patterns...
         </h3>
-        <p className="text-slate-500 dark:text-slate-400 text-sm">
+        <p className="text-slate-600 text-sm">
           Our neural network is examining pixel-level artifacts
         </p>
       </div>
 
       {/* Progress Bar */}
       <div className="w-full max-w-xs mt-6">
-        <div className="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+        <div className="h-1.5 bg-blue-100 rounded-full overflow-hidden">
           <div className="h-full bg-gradient-to-r from-primary via-indigo-500 to-purple-500 rounded-full animate-progress"></div>
         </div>
       </div>

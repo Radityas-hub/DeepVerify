@@ -50,15 +50,15 @@ const HeroSection = () => {
       </div>
       
       <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight mb-6 drop-shadow-sm">
-        <span ref={titleRef} className="block text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
+        <span ref={titleRef} className="block text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-600">
           Is This Image
         </span>
-        <span ref={subtitleRef} className="block bg-clip-text text-transparent bg-gradient-to-r from-primary via-indigo-500 to-purple-500 ai-text-glow">
+        <span ref={subtitleRef} className="block bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-500 to-indigo-500 ai-text-glow">
           Real or AI Generated?
         </span>
       </h1>
       
-      <p ref={descRef} className="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+      <p ref={descRef} className="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 leading-relaxed font-normal">
         Upload an image and let our advanced convolutional neural network analyze pixel patterns to detect authenticity with 99% accuracy.
       </p>
     </section>

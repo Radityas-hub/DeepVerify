@@ -103,7 +103,7 @@ const ResultCard = ({ result, imagePreview, onReset }) => {
 
       {/* Confidence Score */}
       <div className="text-center mb-6">
-        <p className="text-slate-500 dark:text-slate-400 text-sm uppercase tracking-wider mb-1">
+        <p className="text-slate-600 text-sm uppercase tracking-wider mb-1">
           Confidence Score
         </p>
         <p 
@@ -139,7 +139,7 @@ const ResultCard = ({ result, imagePreview, onReset }) => {
       </div>
 
       {/* Analysis Time */}
-      <p className="text-slate-400 dark:text-slate-500 text-xs mb-6">
+      <p className="text-slate-500 text-xs mb-6">
         Analysis completed in {(result.analysisTime / 1000).toFixed(2)}s
       </p>
 
@@ -172,12 +172,12 @@ const DetailBar = ({ label, score, isReal }) => {
   return (
     <div className="space-y-1">
       <div className="flex justify-between text-xs">
-        <span className="text-slate-600 dark:text-slate-400">{label}</span>
+        <span className="text-slate-600">{label}</span>
         <span className={`font-medium ${isReal ? 'text-emerald-500' : 'text-red-500'}`}>
           {score}%
         </span>
       </div>
-      <div className="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+      <div className="h-1.5 bg-blue-100 rounded-full overflow-hidden">
         <div 
           ref={barRef}
           className={`h-full rounded-full ${
