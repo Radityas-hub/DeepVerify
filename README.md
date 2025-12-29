@@ -116,41 +116,6 @@ npm run preview
 
 ---
 
-## 📁 Project Structure
-
-```
-DeepVerify/
-├── public/
-│   ├── logo.png
-│   └── vite.svg
-├── src/
-│   ├── components/
-│   │   ├── AnalyzingState.jsx    # Loading animation component
-│   │   ├── FeaturesSection.jsx   # Features grid
-│   │   ├── Footer.jsx            # Site footer
-│   │   ├── HeroSection.jsx       # Hero banner
-│   │   ├── Navbar.jsx            # Navigation bar
-│   │   ├── ResultCard.jsx        # Analysis result display
-│   │   ├── ScrollToTop.jsx       # Scroll to top button
-│   │   ├── UploadSection.jsx     # Image upload handler
-│   │   └── index.js              # Component exports
-│   ├── pages/
-│   │   ├── AboutPage.jsx         # About page
-│   │   ├── DocumentationPage.jsx # Documentation page
-│   │   ├── HomePage.jsx          # Main landing page
-│   │   └── index.js              # Page exports
-│   ├── services/
-│   │   └── mockAiService.js      # Mock AI classification logic
-│   ├── App.jsx                   # Main app component
-│   ├── index.css                 # Global styles & Tailwind
-│   └── main.jsx                  # App entry point
-├── index.html
-├── package.json
-└── vite.config.js
-```
-
----
-
 ## 📚 Documentation
 
 ### How It Works
