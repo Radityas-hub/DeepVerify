@@ -1,6 +1,6 @@
 # DeepVerify Backend
 
-Backend API untuk DeepVerify - AI Image Detection.
+Backend API untuk DeepVerify - AI Image Detection menggunakan Flask + TensorFlow.
 
 ## Quick Start
 
@@ -22,10 +22,8 @@ pip install -r requirements.txt
 ```
 
 ### 3. Tambahkan Model
-Letakkan file model hasil training di folder `backend/`:
-- `model.h5` atau
-- `model.keras` atau
-- folder `saved_model/`
+Letakkan file model CNN hasil training di folder `backend/`:
+- `ai_vs_real_cnn.h5` (model yang sudah di-train)
 
 ### 4. Jalankan Server
 ```bash
@@ -56,31 +54,14 @@ Response:
   "success": true,
   "prediction": {
     "label": "REAL_PHOTO",
-    "confidence": 92.5,
-    "details": {
-      "artifactScore": 85,
-      "consistencyScore": 90,
-      "patternScore": 88
-    }
+    "confidence": 92.5
   }
 }
 ```
 
-## Deployment
+## Model Info
 
-### Railway (Recommended)
-1. Push ke GitHub
-2. Connect repo ke Railway
-3. Set environment variables jika perlu
-4. Deploy otomatis
-
-### Render
-1. Create new Web Service
-2. Connect GitHub repo
-3. Set build command: `pip install -r requirements.txt`
-4. Set start command: `gunicorn app:app`
-
-### Google Cloud Run
-```bash
-gcloud run deploy deepverify-api --source .
-```
+- **File**: `ai_vs_real_cnn.h5`
+- **Input Shape**: (224, 224, 3) - RGB images
+- **Output**: Binary classification (sigmoid)
+- **Classes**: AI_GENERATED (0) / REAL_PHOTO (1)
