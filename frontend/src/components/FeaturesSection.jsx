@@ -3,8 +3,8 @@ const features = [
     icon: "model_training",
     iconColor: "text-blue-600",
     bgColor: "bg-blue-500/10",
-    title: "ResNet-50 Architecture",
-    description: "Utilizing deep residual learning for image recognition to distinguish synthetic artifacts."
+    title: "CNN Architecture",
+    description: "Convolutional Neural Network trained to detect patterns and artifacts in AI-generated images."
   },
   {
     icon: "speed",
