@@ -66,12 +66,7 @@ const mockAnalyzeImage = async (imageFile) => {
     label: isReal ? 'REAL_PHOTO' : 'AI_GENERATED',
     confidence: generateConfidence(),
     analysisTime: Math.round(processingTime),
-    timestamp: new Date().toISOString(),
-    details: {
-      artifactScore: generateConfidence(70, 95),
-      consistencyScore: generateConfidence(75, 98),
-      patternScore: generateConfidence(80, 99),
-    }
+    timestamp: new Date().toISOString()
   };
 };
 

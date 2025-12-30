@@ -5,7 +5,6 @@ const ResultCard = ({ result, imagePreview, onReset }) => {
   const cardRef = useRef(null);
   const scoreRef = useRef(null);
   const labelRef = useRef(null);
-  const detailsRef = useRef(null);
 
   const isReal = result.label === 'REAL_PHOTO';
 
@@ -40,13 +39,6 @@ const ResultCard = ({ result, imagePreview, onReset }) => {
         }
       );
 
-      // Details stagger animation
-      if (detailsRef.current) {
-        gsap.fromTo(detailsRef.current.children,
-          { opacity: 0, x: -20 },
-          { opacity: 1, x: 0, duration: 0.4, stagger: 0.1, delay: 0.6, ease: 'power2.out' }
-        );
-      }
     }, cardRef);
 
     return () => ctx.revert();
@@ -116,28 +108,6 @@ const ResultCard = ({ result, imagePreview, onReset }) => {
         </p>
       </div>
 
-      {/* Detailed Analysis */}
-      <div 
-        ref={detailsRef}
-        className="w-full max-w-sm space-y-3 mb-8"
-      >
-        <DetailBar 
-          label="Artifact Detection" 
-          score={result.details.artifactScore} 
-          isReal={isReal}
-        />
-        <DetailBar 
-          label="Pattern Consistency" 
-          score={result.details.consistencyScore} 
-          isReal={isReal}
-        />
-        <DetailBar 
-          label="Neural Signature" 
-          score={result.details.patternScore} 
-          isReal={isReal}
-        />
-      </div>
-
       {/* Analysis Time */}
       <p className="text-slate-500 text-xs mb-6">
         Analysis completed in {(result.analysisTime / 1000).toFixed(2)}s
@@ -151,43 +121,6 @@ const ResultCard = ({ result, imagePreview, onReset }) => {
         <span className="material-symbols-outlined">refresh</span>
         Analyze Another Image
       </button>
-    </div>
-  );
-};
-
-/**
- * DetailBar Sub-component
- * Displays individual analysis metric with progress bar
- */
-const DetailBar = ({ label, score, isReal }) => {
-  const barRef = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(barRef.current,
-      { width: '0%' },
-      { width: `${score}%`, duration: 1, delay: 0.8, ease: 'power2.out' }
-    );
-  }, [score]);
-
-  return (
-    <div className="space-y-1">
-      <div className="flex justify-between text-xs">
-        <span className="text-slate-600">{label}</span>
-        <span className={`font-medium ${isReal ? 'text-emerald-500' : 'text-red-500'}`}>
-          {score}%
-        </span>
-      </div>
-      <div className="h-1.5 bg-blue-100 rounded-full overflow-hidden">
-        <div 
-          ref={barRef}
-          className={`h-full rounded-full ${
-            isReal 
-              ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' 
-              : 'bg-gradient-to-r from-red-400 to-red-600'
-          }`}
-          style={{ width: '0%' }}
-        />
-      </div>
     </div>
   );
 };

@@ -181,20 +181,11 @@ def predict():
                 label = 'AI_GENERATED'
                 confidence = (1 - prob) * 100
         
-        # Generate detail scores (opsional - bisa dihapus jika tidak perlu)
-        details = {
-            'artifactScore': int(np.random.uniform(70, 95)),
-            'consistencyScore': int(np.random.uniform(75, 98)),
-            'patternScore': int(np.random.uniform(80, 99)),
-        }
-        
         return jsonify({
             'success': True,
             'prediction': {
                 'label': label,
-                'confidence': round(confidence, 2),
-                'details': details,
-                'raw_output': predictions.tolist()  # Debug info
+                'confidence': round(confidence, 2)
             }
         })
         
