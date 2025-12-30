@@ -33,7 +33,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS untuk frontend React
 
 # Path ke model - sesuaikan dengan nama file model kamu
-MODEL_PATH = 'model.h5'  # atau 'model.keras' atau 'saved_model/'
+MODEL_PATH = 'ai_vs_real_cnn.h5'  # Model CNN yang sudah di-train
 
 # Image preprocessing settings - sesuaikan dengan training
 IMG_SIZE = (224, 224)  # Ukuran input model (biasanya 224x224 untuk ResNet)
